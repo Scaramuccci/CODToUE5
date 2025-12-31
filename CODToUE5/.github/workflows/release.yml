@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get tag name
+        id: tag
+        run: echo "TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: Build release zip
+        run: |
+          mkdir -p release_build/c2m-ue5-importer
+          cp -r Content LICENSE README.md CHANGELOG.md CONTRIBUTING.md \
+            release_build/c2m-ue5-importer/
+          cd release_build
+          zip -r ../c2m-ue5-importer-${{ steps.tag.outputs.TAG }}.zip c2m-ue5-importer/
+          cd ..
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: "C2M UE5 Importer ${{ steps.tag.outputs.TAG }}"
+          body_path: CHANGELOG.md
+          files: c2m-ue5-importer-${{ steps.tag.outputs.TAG }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

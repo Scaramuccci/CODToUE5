@@ -1,0 +1,36 @@
+name: Lint
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install linters
+        run: pip install flake8 pyflakes
+
+      - name: Lint (pyflakes — errors only, no unreal stubs needed)
+        # We check syntax and undefined names but skip the 'unreal' import
+        # since it only exists inside the UE5 runtime environment.
+        run: |
+          find Content/Python/C2MImporter -name "*.py" | \
+            xargs python -m pyflakes 2>&1 | \
+            grep -v "undefined name 'unreal'" || true
+
+      - name: Check formatting (flake8 — style only)
+        run: |
+          flake8 Content/Python/C2MImporter \
+            --max-line-length=100 \
+            --extend-ignore=E501,W503 \
+            --count
