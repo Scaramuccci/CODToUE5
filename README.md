@@ -17,7 +17,7 @@ Ported and extended from [SHEILAN's Blender C2M Importer](https://github.com/she
 
 ## What is C2M?
 
-`.c2m` is a binary map format exported by **[Greyhound](https://github.com/dtzxporter/Greyhound)** and **CoDMap** tools. It packages all geometry, materials, prop instances, and lights from a Call of Duty level into a single file ready for import into 3D applications.
+`.c2m` is a binary map format exported by **Credits: [Greyhound](https://github.com/Scobalula/Greyhound) by Scobalula.** and **CoDMap** tools. It packages all geometry, materials, prop instances, and lights from a Call of Duty level into a single file ready for import into 3D applications.
 
 This plugin reads that binary format and reconstructs the full map inside an Unreal Engine 5 level — geometry, textures, materials, prop placement, and lights.
 
