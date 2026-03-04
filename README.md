@@ -1,8 +1,13 @@
 # CODToUE5
 
+![GitHub release](https://img.shields.io/github/v/release/Scaramuccci/CODToUE5)
+![GitHub downloads](https://img.shields.io/github/downloads/Scaramuccci/CODToUE5/total)
+![License](https://img.shields.io/github/license/Scaramuccci/CODToUE5)
+![Unreal Engine](https://img.shields.io/badge/Unreal%20Engine-5-blue)
+
 Importer for **Call of Duty C2M maps into Unreal Engine 5**.
 
-This tool reads C2M map data and reconstructs the level inside UE5 by generating meshes, materials, and lighting using the Unreal Python API.
+This tool reads **C2M map data** and reconstructs the level inside Unreal Engine by generating meshes, materials, and lighting using the **Unreal Engine Python API**.
 
 The project is **ported and extended from**
 [SHEILAN's Blender C2M Importer](https://github.com/sheilan102/C2M?tab=readme-ov-file).
@@ -12,51 +17,54 @@ Assets required for importing maps are typically extracted using
 
 ---
 
-## Features
+# Features
 
 * Import **C2M map geometry** into Unreal Engine 5
-* Automatically generate **UE5 meshes and materials**
-* Build **map lighting and scene structure**
+* Automatically generate **UE5 meshes**
+* Create **materials from map assets**
+* Rebuild **lighting information**
 * Python-based importer designed to run inside **Unreal Engine**
-* Works with assets extracted using **Greyhound**
+* Compatible with assets extracted using **Greyhound**
 
 ---
 
-## Requirements
+# Requirements
 
 Before using the importer you will need:
 
 * **Unreal Engine 5**
-* **Python scripting enabled in UE**
-* Map assets extracted using **Greyhound**
-* The C2M map file you want to import
+* **Python scripting enabled in Unreal Engine**
+* **Greyhound** to extract game assets
+* A **C2M map file**
 
 ---
 
-## Installation
+# Installation
 
 1. Download the latest release from the **Releases** page.
 
-2. Extract the contents into your Unreal project:
+2. Extract the release package into your Unreal Engine project:
 
 ```
-<ProjectFolder>/Plugins/
+<ProjectDirectory>/Plugins/
 ```
 
 3. Launch Unreal Engine.
 
-4. Enable the plugin if required and run the importer script.
+4. Enable Python scripting if it is not already enabled.
+
+5. Run the importer script.
 
 ---
 
-## Usage
+# Usage
 
-1. Extract the map assets using **Greyhound**.
-2. Place the extracted files and C2M map into your project directory.
-3. Run the importer Python script inside Unreal Engine.
-4. The importer will:
+1. Extract map assets using **Greyhound**.
+2. Place the extracted assets and the **C2M map file** inside your project directory.
+3. Run the importer Python script from Unreal Engine.
+4. The importer will automatically:
 
-* Read the C2M data
+* Parse the C2M map data
 * Generate meshes
 * Create materials
 * Build lighting
@@ -64,7 +72,7 @@ Before using the importer you will need:
 
 ---
 
-## Project Structure
+# Project Structure
 
 ```
 Content/
@@ -80,49 +88,53 @@ Content/
              └── binary_reader.py
 ```
 
-Key components:
+### Key Components
 
-| File                  | Purpose                               |
-| --------------------- | ------------------------------------- |
-| `c2m_reader.py`       | Reads and parses C2M map data         |
-| `mesh_builder.py`     | Builds UE meshes from parsed geometry |
-| `material_builder.py` | Generates Unreal materials            |
-| `light_builder.py`    | Reconstructs lighting                 |
-| `coords.py`           | Handles coordinate system conversion  |
+| File                  | Purpose                              |
+| --------------------- | ------------------------------------ |
+| `c2m_reader.py`       | Parses C2M map data                  |
+| `binary_reader.py`    | Handles binary file parsing          |
+| `mesh_builder.py`     | Generates Unreal meshes              |
+| `material_builder.py` | Builds Unreal materials              |
+| `light_builder.py`    | Recreates map lighting               |
+| `coords.py`           | Handles coordinate system conversion |
 
 ---
 
-## Releases
+# Releases
 
-Compiled packages of the importer are available under:
+Compiled importer packages are available under:
 
 ```
 Releases → Download ZIP
 ```
 
-Each release contains the importer ready to be added to an Unreal Engine project.
+Each release contains a ready-to-use importer package.
 
 ---
 
-## Credits
+# Credits
 
 This project builds upon the work of the following tools and contributors:
 
-* **SHEILAN** – Original Blender C2M Importer
-  https://github.com/sheilan102/C2M
+**SHEILAN**
+Original Blender C2M Importer
+https://github.com/sheilan102/C2M
 
-* **Scobalula** – Greyhound asset extraction tool
-  https://github.com/Scobalula/Greyhound
+**Scobalula**
+Greyhound Asset Extraction Tool
+https://github.com/Scobalula/Greyhound
 
 ---
 
-## Disclaimer
+# Disclaimer
 
 This project is intended for **research and educational purposes**.
-All game assets belong to their respective owners.
+
+All game assets and intellectual property belong to their respective owners.
 
 ---
 
-## License
+# License
 
-See the `LICENSE` file for details.
+See the **LICENSE** file for details.
