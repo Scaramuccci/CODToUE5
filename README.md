@@ -9,7 +9,7 @@
 
 **Import Call of Duty map files (.c2m) directly into Unreal Engine 5.**
 
-Ported and extended from [SHEILAN's Blender C2M Importer](https://github.com/sheilan/c2m-blender).
+Ported and extended from [SHEILAN's Blender C2M Importer](https://github.com/sheilan102/C2M?tab=readme-ov-file).
 
 </div>
 
