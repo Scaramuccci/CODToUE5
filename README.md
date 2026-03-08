@@ -5,30 +5,51 @@
 ![License](https://img.shields.io/github/license/Scaramuccci/CODToUE5)
 ![Unreal Engine](https://img.shields.io/badge/Unreal%20Engine-5-blue)
 
-Importer for **Call of Duty C2M maps into Unreal Engine 5**.
+CODToUE5 is a small hobby project that explores importing **Call of Duty C2M map data into Unreal Engine 5**.
 
-This tool reads **C2M map data** and reconstructs the level inside Unreal Engine by generating meshes, materials, and lighting using the **Unreal Engine Python API**.
+The goal of this tool is to read C2M map files and reconstruct the level inside Unreal Engine by automatically generating meshes, materials and lighting using Python scripts.
 
-The project is **ported and extended from**
+This project is **ported and extended from**
 [SHEILAN's Blender C2M Importer](https://github.com/sheilan102/C2M?tab=readme-ov-file).
 
-Assets required for importing maps are typically extracted using
+Assets required for importing maps are usually extracted using
 [Greyhound](https://github.com/Scobalula/Greyhound).
 
 ---
 
-# Features
+## Features
 
 * Import **C2M map geometry** into Unreal Engine 5
 * Automatically generate **UE5 meshes**
 * Create **materials from map assets**
 * Rebuild **lighting information**
 * Python-based importer designed to run inside **Unreal Engine**
-* Compatible with assets extracted using **Greyhound**
+* Works with assets extracted using **Greyhound**
 
 ---
 
-# Requirements
+## VR Compatibility
+
+Although this project mainly focuses on importing maps into **Unreal Engine 5**, the workflow can also be useful for **VR modding environments**.
+
+Because the importer reconstructs map geometry inside Unreal, the resulting levels can be adapted for use in **Pavlov VR modding workflows**.
+
+Typical workflow:
+
+1. Extract assets using **Greyhound**
+2. Import the map into **Unreal Engine 5** using this tool
+3. Adjust and optimise the level for VR performance
+4. Integrate the environment using **Pavlov's modding tools**
+
+This makes the project useful for experimenting with:
+
+* VR map reconstruction
+* Pavlov VR modding
+* learning how game asset pipelines work
+
+---
+
+## Requirements
 
 Before using the importer you will need:
 
@@ -39,11 +60,11 @@ Before using the importer you will need:
 
 ---
 
-# Installation
+## Installation
 
 1. Download the latest release from the **Releases** page.
 
-2. Extract the release package into your Unreal Engine project:
+2. Extract the package into your Unreal Engine project:
 
 ```
 <ProjectDirectory>/Plugins/
@@ -57,22 +78,23 @@ Before using the importer you will need:
 
 ---
 
-# Usage
+## Usage
 
-1. Extract map assets using **Greyhound**.
-2. Place the extracted assets and the **C2M map file** inside your project directory.
-3. Run the importer Python script from Unreal Engine.
-4. The importer will automatically:
+1. Extract map assets using **Greyhound**
+2. Place the extracted assets and the **C2M map file** inside your project
+3. Run the importer script inside Unreal Engine
+
+The importer will then:
 
 * Parse the C2M map data
 * Generate meshes
 * Create materials
-* Build lighting
-* Assemble the level in UE5
+* Rebuild lighting
+* Assemble the level inside Unreal Engine
 
 ---
 
-# Project Structure
+## Project Structure
 
 ```
 Content/
@@ -90,32 +112,28 @@ Content/
 
 ### Key Components
 
-| File                  | Purpose                              |
-| --------------------- | ------------------------------------ |
-| `c2m_reader.py`       | Parses C2M map data                  |
-| `binary_reader.py`    | Handles binary file parsing          |
-| `mesh_builder.py`     | Generates Unreal meshes              |
-| `material_builder.py` | Builds Unreal materials              |
-| `light_builder.py`    | Recreates map lighting               |
-| `coords.py`           | Handles coordinate system conversion |
+| File                  | Purpose                       |
+| --------------------- | ----------------------------- |
+| `c2m_reader.py`       | Parses C2M map data           |
+| `binary_reader.py`    | Handles binary file parsing   |
+| `mesh_builder.py`     | Generates Unreal meshes       |
+| `material_builder.py` | Builds Unreal materials       |
+| `light_builder.py`    | Recreates map lighting        |
+| `coords.py`           | Handles coordinate conversion |
 
 ---
 
-# Releases
+## Releases
 
-Compiled importer packages are available under:
+Pre-packaged versions of the importer are available in the **Releases** section.
 
-```
-Releases → Download ZIP
-```
-
-Each release contains a ready-to-use importer package.
+Each release contains a ready-to-use version of the importer that can be dropped directly into an Unreal Engine project.
 
 ---
 
-# Credits
+## Credits
 
-This project builds upon the work of the following tools and contributors:
+This project builds on the work of several tools and contributors.
 
 **SHEILAN**
 Original Blender C2M Importer
@@ -127,14 +145,14 @@ https://github.com/Scobalula/Greyhound
 
 ---
 
-# Disclaimer
+## Disclaimer
 
-This project is intended for **research and educational purposes**.
+This project is intended for **research, learning and experimentation**.
 
 All game assets and intellectual property belong to their respective owners.
 
 ---
 
-# License
+## License
 
 See the **LICENSE** file for details.
